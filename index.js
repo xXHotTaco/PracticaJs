@@ -293,28 +293,103 @@
 
 //Spread
 
-const nombres = ['carlos', 'juan', 'josue']
-const nuevosNombres = ['arturo', 'carlos', 'hector']
+// const nombres = ['carlos', 'juan', 'josue']
+// const nuevosNombres = ['arturo', 'carlos', 'hector']
 
-console.log([...nombres, ...nuevosNombres])
-console.log(nombres)
-console.log(nuevosNombres)
+// // console.log([...nombres, ...nuevosNombres])
+// // console.log(nombres)
+// // console.log(nuevosNombres)
 
-const user = {
-    nombre: 'carlos',
-    apellido: 'lopez'
+// const user = {
+//     nombre: 'carlos',
+//     apellido: 'lopez'
+// }
+
+// const direccion = {
+//     calle: 'base 123',
+//     ciudad: 'zapopan'
+// }
+
+// const userInfo = {
+//     ...user,
+//     ...direccion
+// }
+
+// console.log(user)
+// console.log(direccion)
+// console.log(userInfo)
+
+/****************************************************/
+
+//Ecmascript para exportar scrips 
+
+/*
+    Puedo decir que quiero importar como se ve en la primer linea donde 
+    estoy llamando todo, o puedo importar por default 
+*/
+
+// import {add, multi, titulo, active, points} from "./add.js";
+
+// console.log(add(10, 20))
+// console.log(multi(5, 5))
+// console.log(titulo, active, points)
+
+/********* Aqui es por Default *********/
+
+// import porDefault from "./add.js";
+
+// console.log(porDefault)
+
+
+/****************************************************/
+
+// optional chaining
+
+/*
+    Esto es como si fuera un if para comprobar si existe o no 
+*/
+// const persona = {
+//     name : 'carlos',
+//     direccion: {
+//         ciudad: 'zapopan'
+//     }
+// }
+
+// console.log(persona.location?.ciudad)
+
+
+/****************************************************/
+
+// Async/await
+
+const ul = document.createElement("ul");
+
+// fetch('https://jsonplaceholder.typicode.com/posts')
+//     .then(function (response){
+//         return response.json()
+//     }).then(function (data){
+//         console.log(data)
+//         data.forEach( function (post) {
+//             const li = document.createElement("li");
+//             li.innerText = post.title;
+//             ul.append(li);
+//         });
+//         document.body.append(ul);
+//     });
+
+async function loadData() {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const data = await response.json()
+    data.forEach(function (post){
+        const li = document.createElement("li");
+            li.innerText = post.title;
+            ul.append(li);
+    });
+    document.body.append(ul);
 }
 
-const direccion = {
-    calle: 'base 123',
-    ciudad: 'zapopan'
-}
-
-const userInfo = {
-    ...user,
-    ...direccion
-}
-
+loadData()
+console.log('linea 2')
 
 
 
